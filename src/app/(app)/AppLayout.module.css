@@ -1,0 +1,11 @@
+.appContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
