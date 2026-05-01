@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { connectToDatabase } from '@/lib/mongodb';
 import { getSession } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 // GET all members (for admin to assign tasks)
 export async function GET() {
   try {

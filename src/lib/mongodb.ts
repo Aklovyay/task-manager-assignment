@@ -1,10 +1,5 @@
 import { MongoClient, Db } from 'mongodb';
 
-/**
- * Global is used here to maintain a cached connection across hot reloads
- * in development. This prevents connections growing exponentially
- * during API Route usage.
- */
 let cachedClient: MongoClient | null = (global as any).mongoClient || null;
 let cachedDb: Db | null = (global as any).mongoDb || null;
 
@@ -16,7 +11,7 @@ export async function connectToDatabase() {
   const MONGODB_URI = process.env.MONGODB_URI;
 
   if (!MONGODB_URI) {
-    throw new Error('Please define the MONGODB_URI environment variable');
+    throw new Error('MONGODB_URI is not defined');
   }
 
   const client = await MongoClient.connect(MONGODB_URI);
